@@ -1,9 +1,11 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
+import commandRoute from "./components/command/command.route";
 import database from "./components/database";
 
 const server: FastifyInstance = Fastify({ logger: true });
 
 server.register(database);
+server.register(commandRoute, { prefix: "/api/command" });
 
 const opts: RouteShorthandOptions = {
   schema: {
