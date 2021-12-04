@@ -1,6 +1,9 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
+import database from "./components/database";
 
 const server: FastifyInstance = Fastify({ logger: true });
+
+server.register(database);
 
 const opts: RouteShorthandOptions = {
   schema: {
