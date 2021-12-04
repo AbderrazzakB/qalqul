@@ -1,0 +1,36 @@
+@hostname = 127.0.0.1:3333/api
+
+### create command
+POST http://{{hostname}}/command HTTP/1.1
+content-type: application/json
+
+{
+    "description": "a new command containing a new command"
+}
+
+### start conversation
+POST http://{{hostname}}/conversation HTTP/1.1
+content-type: application/json
+
+{
+    "text": "Hi I need information about my command 61ab8da2951756fd9c536305",
+    "origin": "facebook"
+}
+
+### start conversation 1
+POST http://{{hostname}}/conversation HTTP/1.1
+content-type: application/json
+
+{
+    "text": "this is my command id 61ab8da2951756fd9c536305 could you please give me status",
+    "origin": "twitter"
+}
+
+### start conversation 1
+POST http://{{hostname}}/conversation HTTP/1.1
+content-type: application/json
+
+{
+    "text": "I would like to cancel my command 61ab90888347a1473f78e810",
+    "origin": "whatsapp"
+}
