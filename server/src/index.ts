@@ -1,11 +1,13 @@
 import Fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
 import commandRoute from "./components/command/command.route";
+import conversationRoute from "./components/conversation/conversation.route";
 import database from "./components/database";
 
 const server: FastifyInstance = Fastify({ logger: true });
 
 server.register(database);
 server.register(commandRoute, { prefix: "/api/command" });
+server.register(conversationRoute, { prefix: "/api/conversation" });
 
 const opts: RouteShorthandOptions = {
   schema: {
